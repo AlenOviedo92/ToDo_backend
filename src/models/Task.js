@@ -27,6 +27,10 @@ module.exports = (sequelize) => {
         completed: {
             type: DataTypes.BOOLEAN,
             allowNull: false,
+        },
+        priorityId: {
+            type: DataTypes.UUID,
+            allowNull: true,
         }
     }, { timestamps: false });
 };

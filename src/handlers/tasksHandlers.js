@@ -10,9 +10,9 @@ const getTasksHandler = async(req, res) => {
 };
 
 const createTaskHandler = async(req, res) => {
-    const { task, description, date, recurring, completed, priority } = req.body;
+    const { task, description, date, recurring, completed, priorityId } = req.body;
     try {
-        const newTask = await createTask(task, description, date, recurring, completed, priority);
+        const newTask = await createTask(task, description, date, recurring, completed, priorityId);
         return res.status(201).json(newTask);
     } catch (error) {
         return res.status(400).json({ error: error.message });
