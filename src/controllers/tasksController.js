@@ -1,19 +1,18 @@
 require('dotenv').config();
 const { Task, Priority } = require('../db');
 // const { Op } = require('sequelize');
-// const { cleanPropsDogs, cleanTemperaments } = require('../utils');
-const axios = require('axios');
+// const axios = require('axios');
 // const { YOUR_API_KEY } = process.env;
 
 const getAllTasks = async() => {
     const results = await Task.findAll({
         include: {
             model: Priority,
-            attributes: ['name'] // Solo traer el nombre de la prioridad
+            attributes: ['name']                                    // Solo trae el nombre de la prioridad
         }
     });
-    // Si no hay tareas devuelvo un array vacío
-    if(!results || results.length === 0) {
+
+    if(!results || results.length === 0) {                          // Si no hay tareas devuelvo un array vacío
         return [];
     }
 
@@ -30,14 +29,13 @@ const getAllTasks = async() => {
 
 const createTask = async (task, description, date, recurring, completed, priorityId) => {
     try {
-        // Verificar que la prioridad exista antes de crear la tarea
-        const priority = await Priority.findByPk(priorityId);
+        const priority = await Priority.findByPk(priorityId);       // Verificar que la prioridad exista antes de crear la tarea
 
         if (!priority) {
             throw new Error('La prioridad proporcionada no existe.');
         }
-        // Crear la tarea sin asignarle aún la prioridad
-        const newTask = await Task.create({
+        
+        const newTask = await Task.create({                         // Crear la tarea sin asignarle aún la prioridad
             task,
             description,
             date,
@@ -45,11 +43,11 @@ const createTask = async (task, description, date, recurring, completed, priorit
             completed,
             priorityId
         });
-        // Recuperar la tarea con su prioridad asociada
-        const taskWithPriority = await Task.findByPk(newTask.id, {
+        
+        const taskWithPriority = await Task.findByPk(newTask.id, {  // Recuperar la tarea con su prioridad asociada
             include: {
                 model: Priority,
-                attributes: ['name'] // Solo traer el nombre de la prioridad
+                attributes: ['name']                                // Solo traer el nombre de la prioridad
             }
         });
     
@@ -64,14 +62,23 @@ const createTask = async (task, description, date, recurring, completed, priorit
         };
     } catch (error) {
         console.error(error);
-        throw new Error(error.message);  // Retorna un error claro si algo falla
+        throw new Error(error.message);                             // Retorna un error claro si algo falla
+    }
+};
+
+const removeTask = async(id) => {
+    const removedTask = await Task.findByPk(id);
+    const deletedTask = removedTask;
+    if(removedTask) {
+        await removedTask.destroy();
+        return deletedTask;
     }
 };
 
 module.exports = {
     getAllTasks,
     createTask,
+    removeTask,
     // getDogById,
-    // removeDog,
     // updatedDog
 };

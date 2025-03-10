@@ -1,4 +1,4 @@
-const { getAllTasks, createTask/*, getDogById, removeDog, updatedDog*/ } = require('../controllers/tasksController');
+const { getAllTasks, createTask, removeTask/*, getDogById, updatedDog*/ } = require('../controllers/tasksController');
 
 const getTasksHandler = async(req, res) => {
     try {
@@ -17,11 +17,22 @@ const createTaskHandler = async(req, res) => {
     } catch (error) {
         return res.status(400).json({ error: error.message });
     }
-}
+};
+
+const deleteTaskHandler = async(req, res) => {
+    const { id } = req.params;
+    try {
+        const taskRemoved = await removeTask(id);
+        return res.status(200).json(taskRemoved);
+    } catch (error) {
+        return res.status(400).json({ error: error.message });
+    }
+};
 
 module.exports = {
     getTasksHandler,
     createTaskHandler,
+    deleteTaskHandler,
 };
 
 //NOTA: Tratar de que el handler NO interactúe con la DB
