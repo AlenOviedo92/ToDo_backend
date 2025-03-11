@@ -84,17 +84,23 @@ const toggleTask = async(id) => {
         }
 
         task.completed = !task.completed;
-
         await task.save();                                          // Guardo la tarea actualizada en la DB
 
+        const updatedTask = await Task.findByPk(id, {
+            include: {
+                model: Priority,
+                attributes: ['name']
+            }
+        });
+
         return {
-            id: task.id,
-            task: task.task,
-            description: task.description,
-            date: task.date,
-            recurring: task.recurring,
-            completed: task.completed,
-            priority: task.Priority ? task.Priority.name : null
+            id: updatedTask.id,
+            task: updatedTask.task,
+            description: updatedTask.description,
+            date: updatedTask.date,
+            recurring: updatedTask.recurring,
+            completed: updatedTask.completed,
+            priority: updatedTask.Priority ? updatedTask.Priority.name : null
         }
     } catch (error) {
         console.error(error);
