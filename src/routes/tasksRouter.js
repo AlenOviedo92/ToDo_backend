@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { getTasksHandler, createTaskHandler, deleteTaskHandler, toggleTaskHandler /*, getDogHandler*/ } = require('../handlers/tasksHandlers');
+const { getTasksHandler, createTaskHandler, deleteTaskHandler, toggleTaskHandler, updateTaskHandler /*, getDogHandler*/ } = require('../handlers/tasksHandlers');
 // const { validate } = require('../utils');
 
 const tasksRouter = Router();
@@ -11,6 +11,8 @@ tasksRouter.post('/', /*validate,*/ createTaskHandler);          //Valido la inf
 tasksRouter.delete('/:id', deleteTaskHandler);
 
 tasksRouter.put('/:id', toggleTaskHandler);
+
+tasksRouter.put('/update/:id', updateTaskHandler);
 
 // dogsRouter.get('/:id', getDogHandler);
 

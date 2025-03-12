@@ -108,10 +108,43 @@ const toggleTask = async(id) => {
     }
 };
 
+const updateTask = async(id, updatedTask) => {
+    try {
+        const task = await Task.findByPk(id);
+
+        if(!task) {
+            throw new Error('Tarea no encontrada');
+        }
+
+        await task.update(updatedTask);         // Actualizo la terea en la DB
+
+        const editedTask = await Task.findByPk(id, {
+            include: {
+                model: Priority,
+                attributes: ['name']
+            }
+        });
+
+        return {
+            id: editedTask.id,
+            task: editedTask.task,
+            description: editedTask.description,
+            date: editedTask.date,
+            recurring: editedTask.recurring,
+            completed: editedTask.completed,
+            priority: editedTask.Priority ? editedTask.Priority.name : null
+        };
+    } catch (error) {
+        console.error(error);
+        throw new Error(error.message);
+    }
+};
+
 module.exports = {
     getAllTasks,
     createTask,
     removeTask,
     toggleTask,
+    updateTask,
     // getDogById,
 };
