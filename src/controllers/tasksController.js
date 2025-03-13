@@ -140,11 +140,39 @@ const updateTask = async(id, updatedTask) => {
     }
 };
 
+const getTaskById = async(id) => {
+    try {
+        const task = await Task.findByPk(id, {
+            include: {
+                model: Priority,
+                attributes: ['name']
+            }
+        });
+
+        if(!task) {
+            throw new Error('Tarea no encontrada');
+        }
+
+        return {
+            id: task.id,
+            task: task.task,
+            description: task.description,
+            date: task.date,
+            recurring: task.recurring,
+            completed: task.completed,
+            priority: task.Priority ? task.Priority.name : null
+        };
+    } catch (error) {
+        console.error(error);
+        throw new Error(error.message);
+    }
+};
+
 module.exports = {
     getAllTasks,
     createTask,
     removeTask,
     toggleTask,
     updateTask,
-    // getDogById,
+    getTaskById,
 };

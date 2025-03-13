@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { getTasksHandler, createTaskHandler, deleteTaskHandler, toggleTaskHandler, updateTaskHandler /*, getDogHandler*/ } = require('../handlers/tasksHandlers');
+const { getTasksHandler, createTaskHandler, deleteTaskHandler, toggleTaskHandler, updateTaskHandler, getTaskHandler } = require('../handlers/tasksHandlers');
 // const { validate } = require('../utils');
 
 const tasksRouter = Router();
@@ -14,6 +14,6 @@ tasksRouter.put('/:id', toggleTaskHandler);
 
 tasksRouter.put('/update/:id', updateTaskHandler);
 
-// dogsRouter.get('/:id', getDogHandler);
+tasksRouter.get('/:id', getTaskHandler);
 
 module.exports = tasksRouter;
