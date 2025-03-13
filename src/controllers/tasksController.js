@@ -145,7 +145,7 @@ const getTaskById = async(id) => {
         const task = await Task.findByPk(id, {
             include: {
                 model: Priority,
-                attributes: ['name']
+                attributes: ['name', 'id']
             }
         });
 
@@ -160,7 +160,7 @@ const getTaskById = async(id) => {
             date: task.date,
             recurring: task.recurring,
             completed: task.completed,
-            priority: task.Priority ? task.Priority.name : null
+            priorityId: task.Priority ? task.Priority.id : null
         };
     } catch (error) {
         console.error(error);
