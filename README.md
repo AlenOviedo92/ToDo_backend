@@ -25,31 +25,33 @@ Esta relación se implementa mediante una clave foránea (priorityId) en el mode
 * ENDPOINTS CONFIGURADOS:
 
 1. Crear una tarea(POST): http://localhost:3001/tasks
-```json
-   JSON: {
+
+   JSON: ```json {
             "task": "Hacer ejercicio",
             "description": "Correr 10 km",
             "date": "2025-03-25T10:00:00.000Z",
             "recurring": "Si",
             "completed": false,
-            "priorityId": "54e70c1c-a20a-4b19-b3bc-5e5a1e13cb75"          ---> Este id debe coincidir con alguno de los id asignado a las prioridades, se puede consultar con el endpoint #4.
-         }
-```
-2. Crear una prioridad(POST): http://localhost:3001/priorities
+            "priorityId": "54e70c1c-a20a-4b19-b3bc-5e5a1e13cb75"          
+         } ```
+
+   NOTA: El "priorityId" debe coincidir con alguno de los id asignado a las prioridades, se puede consultar con el endpoint #4.
+   
+3. Crear una prioridad(POST): http://localhost:3001/priorities
 
    JSON: {
             "name": "Alta"
          }
    
-3. Obtener todas las tareas(GET):  http://localhost:3001/tasks
+4. Obtener todas las tareas(GET):  http://localhost:3001/tasks
    
-4. Obtener todas las prioridades(GET):  http://localhost:3001/priorities
+5. Obtener todas las prioridades(GET):  http://localhost:3001/priorities
    
-5. Obtener una tarea por ID(GET):  http://localhost:3001/tasks/:id
+6. Obtener una tarea por ID(GET):  http://localhost:3001/tasks/:id
    
-6. Actualizar la propiedad "completed" de una tarea(PUT):  http://localhost:3001/tasks/:id
+7. Actualizar la propiedad "completed" de una tarea(PUT):  http://localhost:3001/tasks/:id
    
-7. Actualizar una tarea(PUT):  http://localhost:3001/tasks/update/:id
+8. Actualizar una tarea(PUT):  http://localhost:3001/tasks/update/:id
 
    JSON: {
             "id": "0aa38a58-333a-4df9-ae42-dbbd94281006",                  ---> Este id debe coincidir con alguno de los id asignado a las tareas, se puede consultar con el endpoint #3.
