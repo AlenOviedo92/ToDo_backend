@@ -1,5 +1,4 @@
 const { Priority } = require('../db');
-// const axios = require('axios');
 
 const getAllPriorities = async() => {
     const results = await Priority.findAll();

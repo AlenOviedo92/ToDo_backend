@@ -1,18 +1,16 @@
 require('dotenv').config();
 const { Task, Priority } = require('../db');
-// const { Op } = require('sequelize');
-// const axios = require('axios');
 // const { YOUR_API_KEY } = process.env;
 
 const getAllTasks = async() => {
     const results = await Task.findAll({
         include: {
             model: Priority,
-            attributes: ['name']                                    // Solo trae el nombre de la prioridad
+            attributes: ['name']                                    
         }
     });
 
-    if(!results || results.length === 0) {                          // Si no hay tareas devuelvo un array vacío
+    if(!results || results.length === 0) {                          
         return [];
     }
 
@@ -29,13 +27,13 @@ const getAllTasks = async() => {
 
 const createTask = async (task, description, date, recurring, completed, priorityId) => {
     try {
-        const priority = await Priority.findByPk(priorityId);       // Verificar que la prioridad exista antes de crear la tarea
+        const priority = await Priority.findByPk(priorityId);       
 
         if (!priority) {
             throw new Error('La prioridad proporcionada no existe.');
         }
         
-        const newTask = await Task.create({                         // Crear la tarea sin asignarle aún la prioridad
+        const newTask = await Task.create({                         
             task,
             description,
             date,
@@ -44,10 +42,10 @@ const createTask = async (task, description, date, recurring, completed, priorit
             priorityId
         });
         
-        const taskWithPriority = await Task.findByPk(newTask.id, {  // Recuperar la tarea con su prioridad asociada
+        const taskWithPriority = await Task.findByPk(newTask.id, {  
             include: {
                 model: Priority,
-                attributes: ['name']                                // Solo traer el nombre de la prioridad
+                attributes: ['name']                                
             }
         });
     
@@ -62,7 +60,7 @@ const createTask = async (task, description, date, recurring, completed, priorit
         };
     } catch (error) {
         console.error(error);
-        throw new Error(error.message);                             // Retorna un error claro si algo falla
+        throw new Error(error.message);                             
     }
 };
 
@@ -84,7 +82,7 @@ const toggleTask = async(id) => {
         }
 
         task.completed = !task.completed;
-        await task.save();                                          // Guardo la tarea actualizada en la DB
+        await task.save();                                         
 
         const updatedTask = await Task.findByPk(id, {
             include: {
@@ -116,7 +114,7 @@ const updateTask = async(id, updatedTask) => {
             throw new Error('Tarea no encontrada');
         }
 
-        await task.update(updatedTask);         // Actualizo la terea en la DB
+        await task.update(updatedTask);         
 
         const editedTask = await Task.findByPk(id, {
             include: {

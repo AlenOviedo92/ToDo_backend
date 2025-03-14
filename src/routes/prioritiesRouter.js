@@ -6,4 +6,4 @@ const prioritiesRouter = Router();
 prioritiesRouter.get('/', getPrioritiesHandler);
 prioritiesRouter.post('/', createPriorityHandler);
 
-module.exports = prioritiesRouter;
+module.exports = prioritiesRouter; 

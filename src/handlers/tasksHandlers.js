@@ -68,5 +68,3 @@ module.exports = {
     updateTaskHandler,
     getTaskHandler,
 };
-
-//NOTA: Tratar de que el handler NO interactúe con la DB

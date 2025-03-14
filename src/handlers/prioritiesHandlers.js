@@ -23,5 +23,3 @@ module.exports = {
     getPrioritiesHandler,
     createPriorityHandler,
 };
-
-//NOTA: Tratar de que el handler NO interactúe con la DB
