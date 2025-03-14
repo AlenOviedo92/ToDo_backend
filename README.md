@@ -23,14 +23,14 @@ Esta relación se implementa mediante una clave foránea (priorityId) en el mode
 4. Instalar las dependencias: **npm install**
 5. Dentro del directorio ToDo_backend(al mismo nivel que el package.json) crear un archivo .env con las siguientes propiedades:
    ```json
-            {
+            
                DB_USER="tu usuario postgres"
                DB_PASSWORD="tu contraseña postgres"
                DB_HOST=localhost
                DB_NAME=tasks
                DB_PORT=3001
                FRONTEND_URL=http://localhost:4200
-            }
+            
 6. Levantar el servidor, ejecutando el comando: **npm run dev**
 
 ## **ENDPOINTS CONFIGURADOS:**
