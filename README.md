@@ -1,4 +1,4 @@
-#**HERRAMIENTAS UTILIZADAS:**
+**#HERRAMIENTAS UTILIZADAS:**
 
 Node.js, Express y PostgreSQL.
 
