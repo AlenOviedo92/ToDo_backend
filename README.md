@@ -1,12 +1,12 @@
-# **HERRAMIENTAS UTILIZADAS:**
+## **HERRAMIENTAS UTILIZADAS:**
 
 Node.js, Express y PostgreSQL.
 
-**JUSTIFICACIÓN DEL STACK TECNOLÓGICO:**
+## **JUSTIFICACIÓN DEL STACK TECNOLÓGICO:**
 
 Para el desarrollo del backend, se ha optado por un stack tecnológico basado en Node.js, Express y PostgreSQL, debido a su eficiencia, escalabilidad y facilidad de integración con el frontend en Angular. Node.js me permite manejar múltiples solicitudes simultáneamente sin bloquear el hilo de ejecución, lo que mejora la eficiencia y el rendimiento del servidor, además cuenta con una gran cantidad de paquetes en npm, lo que facilita la integración de herramientas y librerías adicionales. Se elige el framework Express por su facilidad de uso, modularidad y rendimiento. Se elige PostreSQL porque es un sistema de gestión de bases de datos relacional que destaca por su fiabilidad y robustez. Además se cuenta con experiencia previa en las tecnologías mencionadas anteriormente.
 
-**MODELOS Y RELACIONES:**
+## **MODELOS Y RELACIONES:**
 
 Se manejan dos modelos principales, Task (Tarea) y Priority (Prioridad). Estos modelos están estructurados en una relación uno a muchos (1:N), donde:
 
@@ -15,14 +15,14 @@ Se manejan dos modelos principales, Task (Tarea) y Priority (Prioridad). Estos m
    
 Esta relación se implementa mediante una clave foránea (priorityId) en el modelo Task, la cual hace referencia al identificador único (id) del modelo Priority.
 
-**INSTRUCCIONES DE INSTALACIÓN Y EJECUCIÓN:**
+## **INSTRUCCIONES DE INSTALACIÓN Y EJECUCIÓN:**
 
 1. Crear una carpeta dónde se guardarán los repositorios tando del backend como del frontend, puede llamarse "ToDo". Dentro de ésta carpeta ejecutar el comando: git clone https://github.com/AlenOviedo92/ToDo_backend.git
 2. Ingreso al directorio clonado: cd ToDo_backend
 3. Instalo las dependencias: npm install
 4. Levanto el servicio, ejecutando el comando: npm run dev
 
-**ENDPOINTS CONFIGURADOS:**
+## **ENDPOINTS CONFIGURADOS:**
 
 1. Crear una tarea(POST): http://localhost:3001/tasks
 
