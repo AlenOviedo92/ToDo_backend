@@ -34,7 +34,7 @@ Esta relación se implementa mediante una clave foránea (priorityId) en el mode
             "completed": false,
             "priorityId": "54e70c1c-a20a-4b19-b3bc-5e5a1e13cb75"          ---> Este id debe coincidir con alguno de los id asignado a las prioridades, se puede consultar con el endpoint #4.
          }
-   
+```
 2. Crear una prioridad(POST): http://localhost:3001/priorities
 
    JSON: {
