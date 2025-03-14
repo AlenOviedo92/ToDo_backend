@@ -17,7 +17,7 @@ Esta relación se implementa mediante una clave foránea (priorityId) en el mode
 
 ## **INSTRUCCIONES DE INSTALACIÓN Y EJECUCIÓN:**
 
-1. Crear una base de datos llamada "tasks", utilizando PostreSQL.
+1. Crear una base de datos llamada "tasks", utilizando PostgreSQL.
 2. Crear una carpeta dónde se guardarán los repositorios tando del backend como del frontend, puede llamarse "ToDo". Dentro de ésta carpeta ejecutar el comando: **git clone https://github.com/AlenOviedo92/ToDo_backend.git**
 3. Ingresar al directorio clonado: **cd ToDo_backend**
 4. Instalar las dependencias: **npm install**
