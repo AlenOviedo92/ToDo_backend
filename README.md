@@ -41,19 +41,21 @@ Esta relación se implementa mediante una clave foránea (priorityId) en el mode
    
 3. Crear una prioridad(POST): http://localhost:3001/priorities
 
-   JSON: {
-            "name": "Alta"
-         }
+   JSON:
+   ```json
+            {
+               "name": "Alta"
+            }
    
-4. Obtener todas las tareas(GET):  http://localhost:3001/tasks
+5. Obtener todas las tareas(GET):  http://localhost:3001/tasks
    
-5. Obtener todas las prioridades(GET):  http://localhost:3001/priorities
+6. Obtener todas las prioridades(GET):  http://localhost:3001/priorities
    
-6. Obtener una tarea por ID(GET):  http://localhost:3001/tasks/:id
+7. Obtener una tarea por ID(GET):  http://localhost:3001/tasks/:id
    
-7. Actualizar la propiedad "completed" de una tarea(PUT):  http://localhost:3001/tasks/:id
+8. Actualizar la propiedad "completed" de una tarea(PUT):  http://localhost:3001/tasks/:id
    
-8. Actualizar una tarea(PUT):  http://localhost:3001/tasks/update/:id
+9. Actualizar una tarea(PUT):  http://localhost:3001/tasks/update/:id
 
    JSON: {
             "id": "0aa38a58-333a-4df9-ae42-dbbd94281006",                  ---> Este id debe coincidir con alguno de los id asignado a las tareas, se puede consultar con el endpoint #3.
@@ -65,7 +67,7 @@ Esta relación se implementa mediante una clave foránea (priorityId) en el mode
             "completed": false
          }
    
-9. Eliminar una tarea(DELETE):  http://localhost:3001/tasks/:id
+10. Eliminar una tarea(DELETE):  http://localhost:3001/tasks/:id
 
 NOTA: Para que todos los endpoints funcionen correctamente es necesario crear, por lo menos, una prioridad utilizando el endpoint #2.
 
