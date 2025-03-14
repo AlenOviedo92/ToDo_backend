@@ -4,7 +4,7 @@ Node.js, Express y PostgreSQL.
 
 ## **JUSTIFICACIÓN DEL STACK TECNOLÓGICO:**
 
-Para el desarrollo del backend, se ha optado por un stack tecnológico basado en Node.js, Express y PostgreSQL, debido a su eficiencia, escalabilidad y facilidad de integración con el frontend en Angular. Node.js me permite manejar múltiples solicitudes simultáneamente sin bloquear el hilo de ejecución, lo que mejora la eficiencia y el rendimiento del servidor, además cuenta con una gran cantidad de paquetes en npm, lo que facilita la integración de herramientas y librerías adicionales. Se elige el framework Express por su facilidad de uso, modularidad y rendimiento. Se elige PostreSQL porque es un sistema de gestión de bases de datos relacional que destaca por su fiabilidad y robustez. Además se cuenta con experiencia previa en las tecnologías mencionadas anteriormente.
+Para el desarrollo del backend, se ha optado por un stack tecnológico basado en Node.js, Express y PostgreSQL, debido a su eficiencia, escalabilidad y facilidad de integración con el frontend en Angular. Node.js me permite manejar múltiples solicitudes simultáneamente sin bloquear el hilo de ejecución, lo que mejora la eficiencia y el rendimiento del servidor, además cuenta con una gran cantidad de paquetes en npm, lo que facilita la integración de herramientas y librerías adicionales. Se elige el framework Express por su facilidad de uso, modularidad y rendimiento. Se elige PostgreSQL porque es un sistema de gestión de bases de datos relacional que destaca por su fiabilidad y robustez. Además se cuenta con experiencia previa en las tecnologías mencionadas anteriormente.
 
 ## **MODELOS Y RELACIONES:**
 
