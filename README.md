@@ -1,4 +1,6 @@
-* HERRAMIENTAS UTILIZADAS: Node.js, Express y PostgreSQL
+* HERRAMIENTAS UTILIZADAS:
+
+Node.js, Express y PostgreSQL.
 
 * JUSTIFICACIÓN DEL STACK TECNOLÓGICO: 
 
