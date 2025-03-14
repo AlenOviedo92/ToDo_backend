@@ -25,7 +25,7 @@ Esta relación se implementa mediante una clave foránea (priorityId) en el mode
 * ENDPOINTS CONFIGURADOS:
 
 1. Crear una tarea(POST): http://localhost:3001/tasks
-
+```json
    JSON: {
             "task": "Hacer ejercicio",
             "description": "Correr 10 km",
