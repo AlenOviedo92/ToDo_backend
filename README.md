@@ -20,7 +20,7 @@ Esta relación se implementa mediante una clave foránea (priorityId) en el mode
 3. Instalo las dependencias: npm install
 4. Levanto el servicio, ejecutando el comando: npm run dev
 
-Endpoints configurados:
+* Endpoints configurados:
 
 1. Crear una tarea(POST): http://localhost:3001/tasks
 
