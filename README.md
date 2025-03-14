@@ -69,7 +69,7 @@ Esta relación se implementa mediante una clave foránea (priorityId) en el mode
             "completed": false
          }
 
-   NOTA: El id debe coincidir con alguno de los id asignado a las tareas, se puede consultar con el endpoint #3. El priorityID debe coincidir con alguno de los id asignado a las prioridades, se puede consultar con el       endpoint #4.
+   NOTA: El id debe coincidir con alguno de los id asignado a las tareas, se puede consultar con el endpoint #3. El priorityID debe coincidir con alguno de los id asignado a las prioridades, se puede consultar con el endpoint #4.
    
 8. Eliminar una tarea(DELETE):  http://localhost:3001/tasks/:id
 
