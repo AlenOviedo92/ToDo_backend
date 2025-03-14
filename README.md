@@ -57,17 +57,21 @@ Esta relación se implementa mediante una clave foránea (priorityId) en el mode
    
 9. Actualizar una tarea(PUT):  http://localhost:3001/tasks/update/:id
 
-   JSON: {
-            "id": "0aa38a58-333a-4df9-ae42-dbbd94281006",                  ---> Este id debe coincidir con alguno de los id asignado a las tareas, se puede consultar con el endpoint #3.
+   JSON:
+   ```json
+         {
+            "id": "0aa38a58-333a-4df9-ae42-dbbd94281006",                  
             "task": "Montar en bicicleta",
             "date": "2025-03-26T05:00:00.000Z",
-            "priorityId": "11f9277e-9e70-443c-b86e-0f48e607205a",          ---> Este id debe coincidir con alguno de los id asignado a las prioridades, se puede consultar con el endpoint #4.
+            "priorityId": "11f9277e-9e70-443c-b86e-0f48e607205a",        
             "description": "Rodar 60 km",
             "recurring": "No",
             "completed": false
          }
+
+   NOTA: El id debe coincidir con alguno de los id asignado a las tareas, se puede consultar con el endpoint #3. El priorityID debe coincidir con alguno de los id asignado a las prioridades, se puede consultar con el       endpoint #4.
    
-10. Eliminar una tarea(DELETE):  http://localhost:3001/tasks/:id
+11. Eliminar una tarea(DELETE):  http://localhost:3001/tasks/:id
 
 NOTA: Para que todos los endpoints funcionen correctamente es necesario crear, por lo menos, una prioridad utilizando el endpoint #2.
 
