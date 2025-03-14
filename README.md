@@ -18,9 +18,9 @@ Esta relación se implementa mediante una clave foránea (priorityId) en el mode
 ## **INSTRUCCIONES DE INSTALACIÓN Y EJECUCIÓN:**
 
 1. Crear una carpeta dónde se guardarán los repositorios tando del backend como del frontend, puede llamarse "ToDo". Dentro de ésta carpeta ejecutar el comando: git clone https://github.com/AlenOviedo92/ToDo_backend.git
-2. Ingresar al directorio clonado: cd ToDo_backend
-3. Instalar las dependencias: npm install
-4. Levantar el servidor, ejecutando el comando: npm run dev
+2. Ingresar al directorio clonado: **cd ToDo_backend**
+3. Instalar las dependencias: **npm install**
+4. Levantar el servidor, ejecutando el comando: **npm run dev**
 
 ## **ENDPOINTS CONFIGURADOS:**
 
