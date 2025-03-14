@@ -26,14 +26,15 @@ Esta relación se implementa mediante una clave foránea (priorityId) en el mode
 
 1. Crear una tarea(POST): http://localhost:3001/tasks
 
-   JSON: ```json {
-                     "task": "Hacer ejercicio",
-                     "description": "Correr 10 km",
-                     "date": "2025-03-25T10:00:00.000Z",
-                     "recurring": "Si",
-                     "completed": false,
-                     "priorityId": "54e70c1c-a20a-4b19-b3bc-5e5a1e13cb75"          
-                  }
+   JSON:
+   ```json {
+               "task": "Hacer ejercicio",
+               "description": "Correr 10 km",
+               "date": "2025-03-25T10:00:00.000Z",
+               "recurring": "Si",
+               "completed": false,
+               "priorityId": "54e70c1c-a20a-4b19-b3bc-5e5a1e13cb75"          
+            } ```
 
    NOTA: El "priorityId" debe coincidir con alguno de los id asignado a las prioridades, se puede consultar con el endpoint #4.
    
