@@ -2,20 +2,28 @@ require('dotenv').config();
 const { Sequelize } = require('sequelize');
 const fs = require('fs');
 const path = require('path');
-const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME } = process.env;
+const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME, DB_PORT } = process.env;
 const TaskModel = require('./models/Task');
 const PriorityModel = require('./models/Priority');
 
-const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`, {
-  logging: false, 
+const sequelize = new Sequelize(DB_NAME, DB_USER, DB_PASSWORD, {
+  host: DB_HOST,
+  port: DB_PORT, // Asegura que estás usando el puerto correcto (5432)
+  dialect: "postgres",
+  logging: false,
   native: false,
+  dialectOptions: {
+    ssl: {
+      require: true, // Activa SSL
+      rejectUnauthorized: false, // Evita errores de certificado
+    },
+  },
 });
 
 TaskModel(sequelize);
 PriorityModel(sequelize);
 
 const basename = path.basename(__filename);
-
 const modelDefiners = [];
 
 fs.readdirSync(path.join(__dirname, '/models'))
@@ -44,3 +52,12 @@ module.exports = {
   ...sequelize.models,
   conn: sequelize,     
 };
+
+(async () => {
+  try {
+    await sequelize.sync({ force: false }); // Cambia a { force: true } si quieres recrear las tablas desde cero
+    console.log("✅ Tablas sincronizadas correctamente en Neon.tech.");
+  } catch (error) {
+    console.error("❌ Error al sincronizar las tablas:", error);
+  }
+})();
