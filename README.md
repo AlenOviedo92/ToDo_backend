@@ -22,9 +22,9 @@ Esta relación se implementa mediante una clave foránea (priorityId) en el mode
 3. Ingresar al directorio clonado: **cd ToDo_backend**
 4. Instalar las dependencias: **npm install**
 5. Dentro del directorio ToDo_backend(al mismo nivel que el package.json) crear un archivo .env con las siguientes propiedades:
-   ```json
             
    #Configuración de la DB
+   ```json
    DB_USER=neondb_owner
    DB_PASSWORD=npg_UbE7dSM0wBmI
    DB_HOST=ep-lively-sea-a5xhgu40-pooler.us-east-2.aws.neon.tech
@@ -33,12 +33,14 @@ Esta relación se implementa mediante una clave foránea (priorityId) en el mode
    SSL_MODE=require
 
    #Configuración del backend
+   ```json
    SERVER_PORT=3001
 
    #Configuración del frontend
+   ```json
    FRONTEND_URL=http://localhost:4200,https://to-do-list-orcin-nine.vercel.app
             
-6. Levantar el servidor, ejecutando el comando: **npm run dev**
+7. Levantar el servidor, ejecutando el comando: **npm run dev**
 
 ## **ENDPOINTS CONFIGURADOS:**
 
