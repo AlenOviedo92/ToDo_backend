@@ -22,9 +22,9 @@ Esta relación se implementa mediante una clave foránea (priorityId) en el mode
 3. Ingresar al directorio clonado: **cd ToDo_backend**
 4. Instalar las dependencias: **npm install**
 5. Dentro del directorio ToDo_backend(al mismo nivel que el package.json) crear un archivo .env con las siguientes propiedades:
-            
-   #Configuración de la DB
+
    ```json
+   #Configuración de la DB
    DB_USER=neondb_owner
    DB_PASSWORD=npg_UbE7dSM0wBmI
    DB_HOST=ep-lively-sea-a5xhgu40-pooler.us-east-2.aws.neon.tech
