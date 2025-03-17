@@ -33,11 +33,9 @@ Esta relación se implementa mediante una clave foránea (priorityId) en el mode
    SSL_MODE=require
 
    #Configuración del backend
-   ```json
    SERVER_PORT=3001
 
    #Configuración del frontend
-   ```json
    FRONTEND_URL=http://localhost:4200,https://to-do-list-orcin-nine.vercel.app
             
 7. Levantar el servidor, ejecutando el comando: **npm run dev**
