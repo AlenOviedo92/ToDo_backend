@@ -65,12 +65,25 @@ const createTask = async (task, description, date, recurring, completed, priorit
 };
 
 const removeTask = async(id) => {
-    const removedTask = await Task.findByPk(id);
-    const deletedTask = removedTask;
-    if(removedTask) {
-        await removedTask.destroy();
-        return deletedTask;
-    }
+    const task = await Task.findByPk(id);
+    if (!task) throw new Error('Tarea no encontrada');
+
+    task.deleted = true;
+    await task.save();
+
+    return task;
+};
+
+const restoreTask = async(id) => {
+    const task = await Task.findByPk(id);
+    if (!task) throw new Error('Tarea no encontrada');
+
+    if (!task.deleted) throw new Error('La tarea no está eliminada');
+
+    task.deleted = false;
+    await task.save();
+
+    return task;
 };
 
 const toggleTask = async(id) => {
@@ -170,6 +183,7 @@ module.exports = {
     getAllTasks,
     createTask,
     removeTask,
+    restoreTask,
     toggleTask,
     updateTask,
     getTaskById,

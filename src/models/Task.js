@@ -31,6 +31,10 @@ module.exports = (sequelize) => {
         priorityId: {
             type: DataTypes.UUID,
             allowNull: true,
-        }
+        },
+        deleted: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false
+        }  
     }, { timestamps: false });
-}; 
+};

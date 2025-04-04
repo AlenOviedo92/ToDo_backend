@@ -1,4 +1,4 @@
-const { getAllTasks, createTask, removeTask, toggleTask, updateTask, getTaskById } = require('../controllers/tasksController');
+const { getAllTasks, createTask, removeTask, restoreTask, toggleTask, updateTask, getTaskById } = require('../controllers/tasksController');
 
 const getTasksHandler = async(req, res) => {
     try {
@@ -24,6 +24,16 @@ const deleteTaskHandler = async(req, res) => {
     try {
         const taskRemoved = await removeTask(id);
         return res.status(200).json(taskRemoved);
+    } catch (error) {
+        return res.status(400).json({ error: error.message });
+    }
+};
+
+const restoreTaskHandler = async(req, res) => {
+    const { id } = req.params;
+    try {
+        const restoredTask = await restoreTask(id);
+        return res.status(200).json(restoredTask);
     } catch (error) {
         return res.status(400).json({ error: error.message });
     }
@@ -64,6 +74,7 @@ module.exports = {
     getTasksHandler,
     createTaskHandler,
     deleteTaskHandler,
+    restoreTaskHandler,
     toggleTaskHandler,
     updateTaskHandler,
     getTaskHandler,
