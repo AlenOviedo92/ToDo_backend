@@ -1,9 +1,11 @@
 const { Router } = require('express');
-const { getTasksHandler, createTaskHandler, deleteTaskHandler, restoreTaskHandler, toggleTaskHandler, updateTaskHandler, getTaskHandler } = require('../handlers/tasksHandlers');
+const { getTasksHandler, getDeletedTasksHandler, createTaskHandler, deleteTaskHandler, restoreTaskHandler, toggleTaskHandler, updateTaskHandler, getTaskHandler } = require('../handlers/tasksHandlers');
 
 const tasksRouter = Router();
 
 tasksRouter.get('/', getTasksHandler);
+
+tasksRouter.get('/deleted', getDeletedTasksHandler);
 
 tasksRouter.post('/', createTaskHandler);
 

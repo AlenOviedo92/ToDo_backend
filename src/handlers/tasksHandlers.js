@@ -1,4 +1,4 @@
-const { getAllTasks, createTask, removeTask, restoreTask, toggleTask, updateTask, getTaskById } = require('../controllers/tasksController');
+const { getAllTasks, createTask, removeTask, restoreTask, toggleTask, updateTask, getTaskById, getDeletedTasks } = require('../controllers/tasksController');
 
 const getTasksHandler = async(req, res) => {
     try {
@@ -70,6 +70,15 @@ const getTaskHandler = async(req, res) => {
     }
 };
 
+const getDeletedTasksHandler = async(req, res) => {
+    try {
+        const deletedTasks = await getDeletedTasks();
+        return res.status(200).json(deletedTasks);
+    } catch (error) {
+        return res.status(400).json({ error: error.message });
+    }
+};
+
 module.exports = {
     getTasksHandler,
     createTaskHandler,
@@ -78,4 +87,5 @@ module.exports = {
     toggleTaskHandler,
     updateTaskHandler,
     getTaskHandler,
+    getDeletedTasksHandler,
 };

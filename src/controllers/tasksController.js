@@ -4,6 +4,7 @@ const { Task, Priority } = require('../db');
 
 const getAllTasks = async() => {
     const results = await Task.findAll({
+        where: { deleted: false },
         include: {
             model: Priority,
             attributes: ['name']                                    
@@ -179,6 +180,26 @@ const getTaskById = async(id) => {
     }
 };
 
+const getDeletedTasks = async() => {
+    const results = await Task.findAll({
+        where: { deleted: true },
+        include: {
+            model: Priority,
+            attributes: ['name']
+        }
+    });
+    
+    return results.map(task => ({
+        id: task.id,
+        task: task.task,
+        description: task.description,
+        date: task.date,
+        recurring: task.recurring,
+        completed: task.completed,
+        priority: task.Priority ? task.Priority.name : null,
+    }));
+};
+
 module.exports = {
     getAllTasks,
     createTask,
@@ -187,4 +208,5 @@ module.exports = {
     toggleTask,
     updateTask,
     getTaskById,
+    getDeletedTasks,
 };
