@@ -15,23 +15,30 @@ Se manejan dos modelos principales, Task (Tarea) y Priority (Prioridad). Estos m
    
 Esta relación se implementa mediante una clave foránea (priorityId) en el modelo Task, la cual hace referencia al identificador único (id) del modelo Priority.
 
-## **INSTRUCCIONES DE INSTALACIÓN Y EJECUCIÓN:**
+## **INSTRUCCIONES DE INSTALACIÓN Y EJECUCIÓN EN LOCAL:**
 
 1. Crear una base de datos llamada "tasks", utilizando PostgreSQL.
 2. Crear una carpeta dónde se guardarán los repositorios tando del backend como del frontend, puede llamarse "ToDo". Dentro de ésta carpeta ejecutar el comando: **git clone https://github.com/AlenOviedo92/ToDo_backend.git**
 3. Ingresar al directorio clonado: **cd ToDo_backend**
 4. Instalar las dependencias: **npm install**
 5. Dentro del directorio ToDo_backend(al mismo nivel que el package.json) crear un archivo .env con las siguientes propiedades:
+
    ```json
+   #Configuración de la DB
+   DB_USER=neondb_owner
+   DB_PASSWORD=npg_UbE7dSM0wBmI
+   DB_HOST=ep-lively-sea-a5xhgu40-pooler.us-east-2.aws.neon.tech
+   DB_NAME=neondb
+   DB_PORT=5432                #Puerto de PostgreSQL
+   SSL_MODE=require
+
+   #Configuración del backend
+   SERVER_PORT=3001
+
+   #Configuración del frontend
+   FRONTEND_URL=http://localhost:4200,https://to-do-list-orcin-nine.vercel.app
             
-               DB_USER="tu usuario postgres"
-               DB_PASSWORD="tu contraseña postgres"
-               DB_HOST=localhost
-               DB_NAME=tasks
-               DB_PORT=3001
-               FRONTEND_URL=http://localhost:4200
-            
-6. Levantar el servidor, ejecutando el comando: **npm run dev**
+7. Levantar el servidor, ejecutando el comando: **npm run dev**
 
 ## **ENDPOINTS CONFIGURADOS:**
 
